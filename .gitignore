@@ -1,4 +1,5 @@
 .env
 tests
+venv
 
 !.example.env
