@@ -19,7 +19,7 @@ def getDistance( start_loc, end_loc ):
     distance = '-'
     if 200 is request.status_code:
         distance = response['rows'][0]['elements'][0]['distance']['value']
-    
+
     return distance
 
 # pre set distances
@@ -56,16 +56,29 @@ def preCompile(Province='Ontario'):
         dataMatrix[i+1][0] = cityList[i]
 
     # 705600
-
+    restMade = True
     for i in range( len( dataList ) ):
         for j in range( len( dataList ) ):
             fromLoc = dataList[i].get('address')
             toLoc   = dataList[j].get('address')
-            distance = getDistance( fromLoc, toLoc )
+
+            print( fromLoc, toLoc )
+
+            if fromLoc == toLoc:
+                print('found')
+                distance = 0
+                restMade = False
+            else:
+                if restMade:
+                    time.sleep(.10)
+                
+                #distance = getDistance( fromLoc, toLoc )
+                distance = 0
+                restMade=True
+
             dataMatrix[i + 1][j + 1] = distance
             REQCOUNT += 1
             print( REQCOUNT , distance )
-            time.sleep(.200)
 
     return dataMatrix
 
