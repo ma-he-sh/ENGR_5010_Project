@@ -50,35 +50,58 @@ def preCompile(Province='Ontario'):
 
     file.close()
 
+    print( len(cityList) )
+    return
+
     dataMatrix = [[0 for j in range(len( cityList ) + 1)] for i in range(len( cityList ) + 1)]
-    dataMatrix[0][0] = ""
+    dataMatrix[0][0] = "x"
     for i in range( len(cityList) ):
         dataMatrix[i+1][0] = cityList[i]
+        dataMatrix[0][i+1] = cityList[i]
 
     # 705600
+
     restMade = True
+    seen=set()
+    seenDistance={}
     for i in range( len( dataList ) ):
         for j in range( len( dataList ) ):
             fromLoc = dataList[i].get('address')
             toLoc   = dataList[j].get('address')
 
-            print( fromLoc, toLoc )
+            t1 = tuple( [ fromLoc, toLoc ] )
+            t2 = tuple( [ toLoc, fromLoc ] )
 
-            if fromLoc == toLoc:
-                print('found')
-                distance = 0
-                restMade = False
-            else:
-                if restMade:
-                    time.sleep(.10)
+            if t1 not in seen and t2 not in seen:
+                if fromLoc == toLoc:
+                    """
+                    distance to itself would be 0
+                    """
+                    distance = 0
+                    restMade = False
+                else:
+                    # if restMade:
+                    #     time.sleep(.10)
+                    
+                    #distance = getDistance( fromLoc, toLoc )
+                    distance = 'req'
+                    restMade=True
+                    REQCOUNT += 1
+
+                dataMatrix[i + 1][j + 1] = distance
+
+                # save distance for reference
+                seenDistance[ fromLoc+toLoc ] = distance
+                seenDistance[ toLoc+fromLoc ] = distance
                 
-                #distance = getDistance( fromLoc, toLoc )
-                distance = 0
-                restMade=True
+                seen.add(t1)
+                seen.add(t2)
+                print('not seen')
+            else:
+                dataMatrix[i + 1][j + 1] = seenDistance[ fromLoc+toLoc ] + ":"
+                print('seen')
 
-            dataMatrix[i + 1][j + 1] = distance
-            REQCOUNT += 1
-            print( REQCOUNT , distance )
+    print( "REQ COUNT", REQCOUNT )
 
     return dataMatrix
 
