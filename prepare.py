@@ -1,4 +1,4 @@
-from functions.funct import preCompile, saveCSV
+from functions.funct import preCompile, saveCSV, GetEnv
 import numpy as np
 
 if __name__ == "__main__":
@@ -7,4 +7,4 @@ if __name__ == "__main__":
     #print( dist )
 
     list = preCompile()
-    saveCSV(list)
+    saveCSV( GetEnv('SAVE_DATA'), list)
