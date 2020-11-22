@@ -19,13 +19,14 @@ class Ant():
 
     def __init__(self, vertices, edges, maxCapacity, demand, pheromones, alpha, beta, startPoint=1 ):
         self.startPoint = startPoint
-        self.vertices = vertices.copy()
+        self.vertices = vertices
         self.edges = edges
         self.maxCapacity = maxCapacity
         self.demand = demand
         self.pheromones = pheromones
         self.alpha = alpha
         self.beta  = beta
+        self.solution = list()
         
     def set_state_transition(self):
         """
@@ -38,8 +39,6 @@ class Ant():
             
             path.append( city )
             self.vertices.remove( city )
-
-            print( "sol", len( self.solution ) )
 
             while( len( self.vertices ) is not 0 ):
                 prob = list()
@@ -58,8 +57,6 @@ class Ant():
                 else:
                     break
             self.solution.append( path )
-
-        print( len( self.solution ) )
         return self.solution
 
     def get_solution(self):
@@ -173,26 +170,16 @@ class ACOVRP():
         NFC = 0
         bestSol = None
 
-        #print( edges )
-        #print( pheromones )
-        #print( vertices )
-
         while( NFC < self.MAX_NFC ):
             sols = list()
             # run per each ant
             for i in range(self.num_ants):
-                ant = Ant( vertices, edges, self.vehicle_capacity, self.delivery_demand, pheromones, self.alpha, self.beta )
+                ant = Ant( vertices.copy(), edges, self.vehicle_capacity, self.delivery_demand, pheromones, self.alpha, self.beta )
                 solution = ant.set_state_transition()
-
-                print( len( solution ) )
-
                 rate = ant.get_solution()
                 sols.append((solution, rate))
             bestSol = self.update_global_pheromone( sols, pheromones, bestSol )
-            
-            print( "generation", NFC )
+            #print( "generation:", NFC, " best:", int(bestSol[1]), " path:", str( bestSol[0] ) )
             NFC += 1
 
         return bestSol
-
-
