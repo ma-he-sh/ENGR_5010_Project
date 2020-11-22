@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot_paths( graph, bestSol ):
-    print("best solution:", str(int(bestSol[1])), str(bestSol))
+    print("best solution:", str(int(bestSol[1])), str(bestSol), " num trucks:", len(bestSol[0]))
 
     # deport location
     deportX, deportY = graph.get(1)
@@ -52,19 +52,19 @@ if __name__ == '__main__':
     sigma:  
     rho:    pheromone coefficient
     theta:
-    num_ants:
+    num_ants: number of ants
     MAX_NFC: max number of function calls
     """
 
-    vehicle_capacity, graph, delivery_demand, optimal = dataset('dataset.txt');
+    vehicle_capacity, graph, delivery_demand, optimal = dataset('dataset2.txt');
 
     alpha = 2
     beta = 5
     sigma = 3
     rho = 0.8
     theta = 80
-    num_ants = 20
-    MAX_NFC = 100
+    num_ants = 22
+    MAX_NFC = 10
 
     vrp = ACOVRP( alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, MAX_NFC )
     vrp.set_graph( graph )

@@ -179,7 +179,7 @@ class ACOVRP():
                 rate = ant.get_solution()
                 sols.append((solution, rate))
             bestSol = self.update_global_pheromone( sols, pheromones, bestSol )
-            #print( "generation:", NFC, " best:", int(bestSol[1]), " path:", str( bestSol[0] ) )
+            print( "generation:", NFC, " best:", int(bestSol[1]), " path:", str( bestSol[0] ) )
             NFC += 1
 
         return bestSol
