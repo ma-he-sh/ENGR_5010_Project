@@ -1,0 +1,1 @@
+| alpha | beta | sigma | rho | theta | num ants | vehical cap | delivery demand | MAX NFC |

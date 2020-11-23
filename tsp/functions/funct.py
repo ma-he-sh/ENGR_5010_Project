@@ -31,10 +31,10 @@ def getDistance( start_loc, end_loc ):
             time.sleep(2)
 
         if 'REQUEST_DENIED' is not response['status']:
-            if( response['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS' ):
-                distance = 'ZEROR'
-            else:
+            if( response['rows'][0]['elements'][0]['status'] == 'OK' ):
                 distance = response['rows'][0]['elements'][0]['distance']['value']
+            else:
+                distance = 'ZERO'
     return distance
 
 # get distance while checking cache exists
