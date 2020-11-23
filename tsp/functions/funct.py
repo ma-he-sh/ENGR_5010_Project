@@ -22,14 +22,19 @@ def getDistance( start_loc, end_loc ):
     request= requests.get( reqURL )
     response = request.json()
 
+    print( response )
+
     distance = '-'
     if 200 is request.status_code:
+        print( response['status'] )
         if response['status'] == "OVER_QUERY_LIMIT":
             time.sleep(2)
 
         if 'REQUEST_DENIED' is not response['status']:
-            distance = response['rows'][0]['elements'][0]['distance']['value']
-
+            if( response['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS' ):
+                distance = 'ZEROR'
+            else:
+                distance = response['rows'][0]['elements'][0]['distance']['value']
     return distance
 
 # get distance while checking cache exists

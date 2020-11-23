@@ -2,7 +2,7 @@ from functions.funct import getCityList, getDistanceBetweenTwoCities, getDistanc
 import random
 import pandas as pd
 
-numCities = 23
+numCities = 100
 
 if __name__ == "__main__":
     dataList, cityList = getCityList('Ontario')
@@ -19,6 +19,7 @@ if __name__ == "__main__":
     seenDistance = {}
     for i in range(len(randomCitySample)):
         for j in range(len(randomCitySample)):
+            print('-')
             city1 = randomCitySample[i]
             city2 = randomCitySample[j]
 
