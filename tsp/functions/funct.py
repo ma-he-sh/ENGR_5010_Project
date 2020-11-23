@@ -6,6 +6,7 @@ import os
 import numpy as np
 import time
 import pandas as pd
+import random
 
 env_path = Path(".") / '.env'
 load_dotenv(dotenv_path=env_path, verbose=True)
@@ -20,10 +21,15 @@ def getDistance( start_loc, end_loc ):
     reqURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins={start}&destinations={end}&key={apikey}".format( start=start_loc, end=end_loc, apikey=apiKEY )
     request= requests.get( reqURL )
     response = request.json()
-    
+
     distance = '-'
     if 200 is request.status_code:
-        distance = response['rows'][0]['elements'][0]['distance']['value']
+        if response['status'] == "OVER_QUERY_LIMIT":
+            time.sleep(2)
+
+        if 'REQUEST_DENIED' is not response['status']:
+            distance = response['rows'][0]['elements'][0]['distance']['value']
+
     return distance
 
 # get distance while checking cache exists
@@ -47,20 +53,29 @@ def getCityList(Province='Ontario'):
     cityList = []
     file = open( os.getenv("CITY_LIST"), "r" )
 
+    tempList = []
+
     while True:
         line = file.readline()
         address = line.strip()
         parts= address.split(", ")
         if len(parts) >= 2 and Province == parts[1]:
-            cityList.append( parts[0] )
-            dataList.append( {
-                'city':parts[0],
-                'province': parts[1],
-                'address' : address
-            } )
+            tempList.append( address )
 
         if not line:
             break
+
+    randomList = tempList
+    for line in randomList:
+        address = line.strip()
+        parts = address.split(", ")
+        if len(parts) >= 2 and Province == parts[1]:
+            cityList.append(parts[0])
+            dataList.append({
+                'city': parts[0],
+                'province': parts[1],
+                'address': address
+            })
 
     file.close()
     return dataList, cityList
@@ -168,3 +183,7 @@ def preCompile(Province='Ontario'):
 def saveCSV( fileName, list ):
     a = np.asarray( list )
     np.savetxt( fileName , a, delimiter=",", fmt='%s')
+
+
+def savePDCSV( df ):
+    df.to_csv( os.getenv("SAVE_DATA"), header=False, index=True )
