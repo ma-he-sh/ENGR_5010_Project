@@ -37,6 +37,31 @@ def getDistance( start_loc, end_loc ):
                 distance = 'ZERO'
     return distance
 
+
+# get coordinates 
+def getCordinates( loc, city ):
+    time.sleep(.01)
+    apiKEY = os.getenv( "GOOGLE_MAP_KEY" )
+    reqURL = "https://maps.googleapis.com/maps/api/geocode/json?address={loc}&key={apiKey}".format(loc=loc, apiKey=apiKEY)
+    request= requests.get( reqURL )
+    response = request.json()
+
+    coordinate = {
+        'city': city,
+        'lat' : '-', # y
+        'lng' : '-'  # x
+    }
+    
+    if 200 is request.status_code:
+        if( response['status'] == 'OVER_QUERY_LIMIT' ):
+            time.sleep(2)
+
+        if( response['status'] == 'OK' ):
+            coordinate['lat'] = response['results'][0]['geometry']['location']['lat']
+            coordinate['lng'] = response['results'][0]['geometry']['location']['lng']
+
+    return coordinate
+
 # get distance while checking cache exists
 def getDistanceBetweenTwoCities( start_loc, end_loc ):
     if start_loc.get('city') == end_loc.get('city'):
@@ -51,6 +76,19 @@ def getDistanceBetweenTwoCities( start_loc, end_loc ):
         data.to_csv( os.getenv('CACHE_DATA'), header=True, index=True )
 
     return distance
+
+# get city list from saved distance file
+def getCityListFromFile( filename, Province='Ontario' ):
+    df = pd.read_csv( filename )
+    data = df.set_index('x')
+
+    address_list = []
+    for city in df['x']:
+        address_list.append({
+            "city" : city,
+            "address" : "{city}, {provice}".format(city=city, provice=Province),
+        })
+    return address_list
 
 # get city list
 def getCityList(Province='Ontario'):
@@ -189,6 +227,8 @@ def saveCSV( fileName, list ):
     a = np.asarray( list )
     np.savetxt( fileName , a, delimiter=",", fmt='%s')
 
-
 def savePDCSV( df ):
     df.to_csv( os.getenv("SAVE_DATA"), header=False, index=True )
+
+def savePDTOCSV( df, filename ):
+    df.to_csv( filename, header=False, index=True )
