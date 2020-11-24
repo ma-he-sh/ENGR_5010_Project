@@ -1,0 +1,55 @@
+NAME : data_3_23
+CAPACITY : 2000
+DATAFILE : distance_250_cities.csv
+NODE_COORD_SECTION
+1 45.84 -79.38 205 South River
+2 44.33 -76.88 116 Newburgh
+3 48.62 -93.67 134 Devlin
+4 44.54 -78.55 120 Bobcaygeon
+5 48.68 -85.98 240 Hemlo
+6 43.99 -78.02 69 Grafton
+7 44.39 -76.47 73 Inverary
+8 44.31 -79.2 199 Pefferlaw
+9 43.71 -80.38 102 Fergus
+10 43.65 -80.02 117 Halton Hills
+11 49.02 -88.27 42 Nipigon
+12 44.59 -75.68 119 Brockville
+13 44.84 -75.55 225 Spencerville
+14 42.9 -79.62 212 Dunnville
+15 43.7 -79.45 26 York
+16 44.51 -77.47 135 Madoc
+17 43.37 -80.84 250 Shakespeare
+18 44.47 -77.31 188 Tweed
+19 43.91 -78.69 130 Bowmanville
+20 46.13 -80.43 208 Noelville
+21 44.91 -78.38 173 Gooderham
+22 42.74 -81.35 112 Shedden
+23 42.93 -80.6 124 Otterville
+DEMAND_SECTION
+1 0 205 South River
+2 1189 116 Newburgh
+3 83 134 Devlin
+4 8 120 Bobcaygeon
+5 369 240 Hemlo
+6 1579 69 Grafton
+7 560 73 Inverary
+8 1801 199 Pefferlaw
+9 1537 102 Fergus
+10 671 117 Halton Hills
+11 300 42 Nipigon
+12 1596 119 Brockville
+13 585 225 Spencerville
+14 1565 212 Dunnville
+15 168 26 York
+16 1134 135 Madoc
+17 922 250 Shakespeare
+18 1635 188 Tweed
+19 1846 130 Bowmanville
+20 1576 208 Noelville
+21 1136 173 Gooderham
+22 1838 112 Shedden
+23 778 124 Otterville
+DEPOT_SECTION
+1
+-1
+EOF

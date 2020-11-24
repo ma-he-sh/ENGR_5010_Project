@@ -1,0 +1,109 @@
+NAME : data_3_50
+CAPACITY : 2000
+DATAFILE : distance_250_cities.csv
+NODE_COORD_SECTION
+1 44.17 -80.39 217 Dundalk
+2 48.08 -84.55 144 Hawk Junction
+3 44.33 -76.88 116 Newburgh
+4 46.7 -79.1 7 Thorne
+5 42.82 -82.47 194 Courtright
+6 47.65 -80.77 34 Gowganda
+7 44.49 -77.0 175 Tamworth
+8 43.23 -79.72 95 Stoney Creek
+9 46.45 -80.42 113 Warren
+10 41.99 -82.93 23 Colchester
+11 43.68 -80.43 59 Elora
+12 46.1 -77.49 82 Deep River
+13 44.18 -77.3 160 Thurlow
+14 44.41 -76.02 1 Lansdowne
+15 49.78 -92.84 43 Dryden
+16 44.32 -80.65 85 Markdale
+17 47.67 -81.72 105 Gogama
+18 45.62 -79.41 169 Burk`s Falls
+19 43.42 -80.3 67 Hespeler
+20 43.22 -79.99 40 Ancaster
+21 48.35 -89.27 2 Fort William First Nation
+22 42.9 -79.62 212 Dunnville
+23 43.91 -78.69 130 Bowmanville
+24 43.87 -79.31 171 Unionville
+25 43.09 -79.08 140 Niagara Falls
+26 49.69 -87.53 106 Jellicoe
+27 42.91 -81.3 221 Lambeth
+28 45.23 -75.47 153 Metcalfe
+29 44.01 -77.89 87 Colborne
+30 44.35 -79.04 63 Cannington
+31 45.86 -82.86 247 Silver Water
+32 42.32 -81.85 248 Rondeau
+33 43.45 -80.49 55 Kitchener
+34 45.9 -77.28 181 Petawawa
+35 49.41 -94.1 38 Sioux Narrows
+36 43.38 -80.71 62 New Hamburg
+37 45.83 -77.11 133 Pembroke
+38 51.01 -93.83 5 Red Lake
+39 46.17 -77.7 147 Rolphton
+40 48.24 -82.44 96 Foleyet
+41 44.99 -79.3 129 Muskoka Falls
+42 44.3 -79.61 179 Innisfil
+43 44.96 -76.98 190 Plevna
+44 49.82 -93.0 158 Oxdrift
+45 42.81 -80.08 183 Nanticoke
+46 44.64 -75.61 99 Maitland
+47 44.26 -79.18 53 Udora
+48 42.31 -82.55 227 Stoney Point
+49 49.97 -94.39 228 Redditt
+50 45.02 -74.73 128 Cornwall
+DEMAND_SECTION
+1 0 217 Dundalk
+2 522 144 Hawk Junction
+3 1087 116 Newburgh
+4 665 7 Thorne
+5 1303 194 Courtright
+6 1653 34 Gowganda
+7 815 175 Tamworth
+8 1113 95 Stoney Creek
+9 900 113 Warren
+10 1310 23 Colchester
+11 844 59 Elora
+12 735 82 Deep River
+13 408 160 Thurlow
+14 1601 1 Lansdowne
+15 1779 43 Dryden
+16 1849 85 Markdale
+17 574 105 Gogama
+18 867 169 Burk`s Falls
+19 223 67 Hespeler
+20 893 40 Ancaster
+21 934 2 Fort William First Nation
+22 1061 212 Dunnville
+23 1434 130 Bowmanville
+24 792 171 Unionville
+25 1506 140 Niagara Falls
+26 1105 106 Jellicoe
+27 298 221 Lambeth
+28 1275 153 Metcalfe
+29 1246 87 Colborne
+30 1595 63 Cannington
+31 382 247 Silver Water
+32 1414 248 Rondeau
+33 1881 55 Kitchener
+34 1787 181 Petawawa
+35 1875 38 Sioux Narrows
+36 1345 62 New Hamburg
+37 1781 133 Pembroke
+38 1864 5 Red Lake
+39 1707 147 Rolphton
+40 1004 96 Foleyet
+41 622 129 Muskoka Falls
+42 584 179 Innisfil
+43 1561 190 Plevna
+44 1480 158 Oxdrift
+45 874 183 Nanticoke
+46 301 99 Maitland
+47 567 53 Udora
+48 1628 227 Stoney Point
+49 398 228 Redditt
+50 1174 128 Cornwall
+DEPOT_SECTION
+1
+-1
+EOF

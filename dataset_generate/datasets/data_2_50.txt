@@ -1,0 +1,109 @@
+NAME : data_2_50
+CAPACITY : 2000
+DATAFILE : distance_100_cities.csv
+NODE_COORD_SECTION
+1 43.36 -80.31 9 Galt
+2 43.04 -79.33 31 Pelham
+3 42.9 -79.62 35 Dunnville
+4 44.06 -77.01 84 Adolphustown
+5 42.93 -79.88 72 Haldimand
+6 42.59 -82.39 75 Wallaceburg
+7 45.23 -75.72 12 Manotick
+8 44.51 -77.47 32 Madoc
+9 44.33 -80.11 25 Creemore
+10 44.29 -78.86 82 Little Britain
+11 45.44 -77.31 37 Foymount
+12 42.92 -79.38 63 Wainfleet
+13 43.68 -80.43 24 Elora
+14 44.18 -77.3 74 Thurlow
+15 43.17 -79.06 67 Queenston
+16 43.62 -80.14 19 Rockwood
+17 44.49 -81.37 43 Southampton
+18 44.9 -75.18 13 Morrisburg
+19 45.97 -81.51 100 Killarney
+20 49.1 -94.32 68 Morson
+21 45.24 -78.89 5 Dorset
+22 43.12 -79.2 23 Thorold
+23 46.25 -83.42 55 Thessalon First Nation
+24 42.82 -82.47 59 Courtright
+25 44.48 -75.88 2 Mallorytown
+26 42.71 -81.31 83 Fingal
+27 45.42 -75.43 76 Navan
+28 45.49 -77.68 51 Barry`s Bay
+29 45.21 -79.33 54 Utterson
+30 45.13 -75.72 86 North Gower
+31 43.27 -79.96 57 Dundas
+32 44.15 -81.03 7 Hanover
+33 44.78 -78.65 99 Kinmount
+34 49.44 -88.13 96 Macdiarmid
+35 42.94 -79.06 10 Stevensville
+36 44.07 -78.21 61 Cold Springs
+37 44.4 -79.0 58 Woodville
+38 43.31 -81.76 62 Grand Bend
+39 44.15 -78.45 18 Millbrook
+40 44.61 -80.59 3 Meaford
+41 43.06 -79.96 16 Caledonia
+42 48.24 -82.44 29 Foleyet
+43 42.91 -81.0 28 Harrietsville
+44 44.37 -76.77 20 Yarker
+45 43.9 -78.94 6 Whitby
+46 47.4 -79.69 44 Cobalt
+47 45.32 -77.52 14 Palmer Rapids
+48 43.22 -81.36 69 Lucan
+49 42.97 -79.03 50 Douglastown
+50 45.33 -79.01 4 Dwight
+DEMAND_SECTION
+1 0 9 Galt
+2 1077 31 Pelham
+3 1472 35 Dunnville
+4 1010 84 Adolphustown
+5 1007 72 Haldimand
+6 4 75 Wallaceburg
+7 144 12 Manotick
+8 1196 32 Madoc
+9 653 25 Creemore
+10 840 82 Little Britain
+11 1121 37 Foymount
+12 222 63 Wainfleet
+13 67 24 Elora
+14 756 74 Thurlow
+15 171 67 Queenston
+16 1809 19 Rockwood
+17 258 43 Southampton
+18 700 13 Morrisburg
+19 150 100 Killarney
+20 213 68 Morson
+21 528 5 Dorset
+22 516 23 Thorold
+23 385 55 Thessalon First Nation
+24 575 59 Courtright
+25 1519 2 Mallorytown
+26 1758 83 Fingal
+27 1595 76 Navan
+28 940 51 Barry`s Bay
+29 1157 54 Utterson
+30 1473 86 North Gower
+31 1284 57 Dundas
+32 1718 7 Hanover
+33 1691 99 Kinmount
+34 165 96 Macdiarmid
+35 1745 10 Stevensville
+36 1366 61 Cold Springs
+37 680 58 Woodville
+38 1640 62 Grand Bend
+39 1539 18 Millbrook
+40 71 3 Meaford
+41 238 16 Caledonia
+42 1120 29 Foleyet
+43 1414 28 Harrietsville
+44 32 20 Yarker
+45 459 6 Whitby
+46 1253 44 Cobalt
+47 1288 14 Palmer Rapids
+48 1666 69 Lucan
+49 205 50 Douglastown
+50 961 4 Dwight
+DEPOT_SECTION
+1
+-1
+EOF

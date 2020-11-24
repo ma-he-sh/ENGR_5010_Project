@@ -1,0 +1,201 @@
+NAME : data_3_96
+CAPACITY : 2000
+DATAFILE : distance_250_cities.csv
+NODE_COORD_SECTION
+1 48.69 -93.0 21 Bear`s Passage
+2 44.48 -77.68 127 Marmora
+3 46.08 -79.37 156 Powassan
+4 45.06 -78.08 14 Deer Lake
+5 46.45 -80.42 31 Markstay
+6 44.37 -80.85 9 Chatsworth
+7 45.05 -78.7 109 Carnarvon
+8 48.15 -80.03 46 Kirkland Lake
+9 49.82 -93.0 158 Oxdrift
+10 48.77 -80.67 13 Iroquois Falls
+11 46.27 -81.88 151 Webbwood
+12 45.62 -79.41 169 Burk`s Falls
+13 42.88 -81.09 170 Belmont
+14 43.83 -80.54 176 Arthur
+15 48.38 -89.25 17 Thunder Bay
+16 45.3 -76.72 192 Calabogie
+17 44.51 -77.47 135 Madoc
+18 44.59 -75.68 119 Brockville
+19 49.78 -86.53 114 Long Lac
+20 43.03 -80.38 90 Scotland
+21 44.48 -75.88 216 Mallorytown
+22 49.62 -86.13 58 Caramat
+23 42.04 -82.92 20 Harrow
+24 48.53 -89.59 4 Kaministiquia
+25 41.99 -82.93 23 Colchester
+26 45.86 -82.86 247 Silver Water
+27 44.11 -79.56 64 Bradford West Gwillimbury
+28 49.21 -84.77 152 Hornepayne
+29 44.75 -78.09 197 Apsley
+30 43.77 -81.53 164 Auburn
+31 46.19 -82.34 111 Spanish
+32 47.59 -82.76 100 Sultan
+33 42.82 -81.55 142 Melbourne
+34 45.23 -75.47 153 Metcalfe
+35 48.08 -84.55 144 Hawk Junction
+36 42.97 -82.41 174 Sarnia
+37 43.91 -78.69 130 Bowmanville
+38 45.74 -76.86 229 Beachburg
+39 46.7 -79.1 7 Thorne
+40 43.42 -80.3 67 Hespeler
+41 44.3 -79.61 179 Innisfil
+42 43.94 -79.38 98 Gormley
+43 44.18 -77.3 160 Thurlow
+44 44.63 -78.0 204 Nephton
+45 43.45 -80.49 55 Kitchener
+46 49.34 -82.15 236 Moonbeam
+47 42.58 -80.43 219 Long Point
+48 45.83 -77.11 133 Pembroke
+49 45.98 -80.55 37 Henvey Inlet First Nation
+50 43.95 -78.29 101 Port Hope
+51 48.35 -89.27 2 Fort William First Nation
+52 46.1 -77.49 82 Deep River
+53 51.01 -93.83 5 Red Lake
+54 45.61 -74.6 77 Hawkesbury
+55 44.18 -81.64 19 Kincardine
+56 44.6 -78.94 161 Victoria
+57 42.91 -81.3 221 Lambeth
+58 43.98 -80.74 44 Mount Forest
+59 50.34 -93.15 242 Perrault Falls
+60 46.21 -82.08 246 Massey
+61 47.84 -83.4 72 Chapleau
+62 49.41 -94.1 29 Nestor Falls
+63 42.81 -80.08 183 Nanticoke
+64 43.78 -79.23 123 Scarborough
+65 43.09 -79.08 140 Niagara Falls
+66 44.31 -77.96 138 Hastings
+67 44.9 -76.25 143 Perth
+68 46.34 -79.79 231 Nipissing First Nation
+69 43.69 -79.34 24 East York
+70 43.26 -79.87 49 Hamilton
+71 44.71 -75.52 39 Prescott
+72 45.31 -74.64 30 Alexandria
+73 42.23 -82.55 145 Comber
+74 43.02 -79.36 60 Fenwick
+75 43.98 -78.62 211 Orono
+76 44.11 -79.58 244 Bradford
+77 44.33 -76.88 116 Newburgh
+78 42.32 -81.85 248 Rondeau
+79 45.43 -76.35 41 Arnprior
+80 45.28 -75.28 245 Embrun
+81 42.29 -82.71 184 Belle River
+82 43.78 -79.61 83 Woodbridge
+83 43.91 -78.79 203 Courtice
+84 43.14 -79.48 8 Lincoln
+85 45.62 -74.69 56 L`Orignal
+86 46.17 -77.7 147 Rolphton
+87 44.17 -80.39 217 Dundalk
+88 42.7 -81.08 172 Sparta
+89 42.1 -83.11 51 Amherstburg
+90 45.77 -79.4 210 Sundridge
+91 45.23 -76.19 115 Almonte
+92 43.4 -80.67 3 Baden
+93 43.99 -78.02 69 Grafton
+94 48.55 -89.79 122 Glen Water
+95 46.45 -80.42 113 Warren
+96 46.39 -79.26 52 Redbridge
+DEMAND_SECTION
+1 0 21 Bear`s Passage
+2 69 127 Marmora
+3 13 156 Powassan
+4 213 14 Deer Lake
+5 1308 31 Markstay
+6 642 9 Chatsworth
+7 402 109 Carnarvon
+8 1000 46 Kirkland Lake
+9 563 158 Oxdrift
+10 1384 13 Iroquois Falls
+11 1888 151 Webbwood
+12 331 169 Burk`s Falls
+13 561 170 Belmont
+14 1662 176 Arthur
+15 1118 17 Thunder Bay
+16 1505 192 Calabogie
+17 1216 135 Madoc
+18 985 119 Brockville
+19 271 114 Long Lac
+20 558 90 Scotland
+21 19 216 Mallorytown
+22 1202 58 Caramat
+23 1424 20 Harrow
+24 522 4 Kaministiquia
+25 758 23 Colchester
+26 1308 247 Silver Water
+27 552 64 Bradford West Gwillimbury
+28 863 152 Hornepayne
+29 92 197 Apsley
+30 1782 164 Auburn
+31 1143 111 Spanish
+32 931 100 Sultan
+33 696 142 Melbourne
+34 1768 153 Metcalfe
+35 517 144 Hawk Junction
+36 1630 174 Sarnia
+37 140 130 Bowmanville
+38 153 229 Beachburg
+39 1842 7 Thorne
+40 1858 67 Hespeler
+41 1728 179 Innisfil
+42 802 98 Gormley
+43 1018 160 Thurlow
+44 335 204 Nephton
+45 707 55 Kitchener
+46 248 236 Moonbeam
+47 855 219 Long Point
+48 144 133 Pembroke
+49 379 37 Henvey Inlet First Nation
+50 1074 101 Port Hope
+51 1543 2 Fort William First Nation
+52 1273 82 Deep River
+53 532 5 Red Lake
+54 189 77 Hawkesbury
+55 1495 19 Kincardine
+56 1227 161 Victoria
+57 458 221 Lambeth
+58 858 44 Mount Forest
+59 720 242 Perrault Falls
+60 597 246 Massey
+61 792 72 Chapleau
+62 486 29 Nestor Falls
+63 1679 183 Nanticoke
+64 1542 123 Scarborough
+65 1753 140 Niagara Falls
+66 582 138 Hastings
+67 106 143 Perth
+68 840 231 Nipissing First Nation
+69 1398 24 East York
+70 1173 49 Hamilton
+71 94 39 Prescott
+72 744 30 Alexandria
+73 1589 145 Comber
+74 1299 60 Fenwick
+75 827 211 Orono
+76 1434 244 Bradford
+77 8 116 Newburgh
+78 439 248 Rondeau
+79 784 41 Arnprior
+80 1803 245 Embrun
+81 1636 184 Belle River
+82 1497 83 Woodbridge
+83 1680 203 Courtice
+84 709 8 Lincoln
+85 282 56 L`Orignal
+86 1284 147 Rolphton
+87 1474 217 Dundalk
+88 1247 172 Sparta
+89 74 51 Amherstburg
+90 1651 210 Sundridge
+91 806 115 Almonte
+92 1109 3 Baden
+93 1766 69 Grafton
+94 427 122 Glen Water
+95 872 113 Warren
+96 1274 52 Redbridge
+DEPOT_SECTION
+1
+-1
+EOF

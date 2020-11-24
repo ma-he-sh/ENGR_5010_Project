@@ -1,0 +1,489 @@
+NAME : data_3_240
+CAPACITY : 2000
+DATAFILE : distance_250_cities.csv
+NODE_COORD_SECTION
+1 41.99 -82.93 23 Colchester
+2 44.2 -77.6 50 Frankford
+3 43.19 -80.38 154 Paris
+4 45.25 -81.66 103 Tobermory
+5 46.1 -77.49 82 Deep River
+6 45.05 -78.7 109 Carnarvon
+7 45.07 -75.36 97 Winchester
+8 42.13 -82.74 132 Cottam
+9 42.66 -81.22 180 Port Stanley
+10 43.37 -80.84 250 Shakespeare
+11 43.02 -79.36 60 Fenwick
+12 43.77 -81.53 164 Auburn
+13 44.91 -78.38 173 Gooderham
+14 44.0 -79.0 249 Newtonville
+15 46.27 -81.88 151 Webbwood
+16 45.28 -75.28 245 Embrun
+17 45.02 -79.62 108 Bala
+18 44.2 -77.05 218 Deseronto
+19 49.69 -87.53 106 Jellicoe
+20 46.08 -79.37 156 Powassan
+21 43.78 -79.61 83 Woodbridge
+22 44.75 -80.07 91 Lafontaine
+23 44.11 -78.94 195 Port Perry
+24 43.03 -80.38 90 Scotland
+25 44.1 -77.58 75 Trenton
+26 44.99 -79.3 129 Muskoka Falls
+27 46.07 -81.78 6 Birch Island
+28 43.29 -80.45 10 Ayr
+29 44.11 -79.56 64 Bradford West Gwillimbury
+30 42.18 -82.96 11 Paquette Corner
+31 44.54 -78.74 93 Fenelon Falls
+32 48.65 -93.98 230 Barwick
+33 43.7 -79.45 26 York
+34 49.62 -86.13 58 Caramat
+35 43.45 -80.49 55 Kitchener
+36 42.96 -81.62 223 Strathroy
+37 44.18 -77.3 160 Thurlow
+38 42.82 -81.55 142 Melbourne
+39 45.0 -81.37 94 Stoke`s Bay
+40 46.03 -79.72 36 Restoule
+41 48.08 -84.55 144 Hawk Junction
+42 43.63 -79.93 126 Stewarttown
+43 46.36 -80.42 74 St. Charles
+44 44.54 -78.55 120 Bobcaygeon
+45 47.81 -80.0 110 Charlton
+46 44.37 -76.77 81 Yarker
+47 46.45 -80.42 31 Markstay
+48 44.71 -75.52 39 Prescott
+49 44.59 -75.68 119 Brockville
+50 46.13 -80.43 208 Noelville
+51 42.66 -81.76 157 Wardsville
+52 43.98 -80.74 44 Mount Forest
+53 45.62 -79.41 169 Burk`s Falls
+54 43.14 -81.03 131 Kintore
+55 44.32 -80.65 85 Markdale
+56 44.48 -77.68 127 Marmora
+57 46.7 -79.1 7 Thorne
+58 46.07 -81.78 48 Whitefish River First Nation
+59 45.02 -74.73 128 Cornwall
+60 45.23 -75.47 153 Metcalfe
+61 43.26 -79.87 49 Hamilton
+62 42.04 -82.92 20 Harrow
+63 42.3 -83.07 88 Sandwich
+64 44.3 -79.61 179 Innisfil
+65 49.34 -82.15 236 Moonbeam
+66 43.87 -79.31 171 Unionville
+67 43.68 -80.43 59 Elora
+68 46.35 -81.33 118 Walden
+69 45.83 -77.11 133 Pembroke
+70 45.77 -79.4 210 Sundridge
+71 44.11 -79.58 244 Bradford
+72 46.28 -83.22 162 Iron Bridge
+73 43.99 -78.02 69 Grafton
+74 42.7 -81.08 172 Sparta
+75 44.64 -75.61 99 Maitland
+76 50.34 -93.15 242 Perrault Falls
+77 47.84 -83.4 72 Chapleau
+78 47.59 -82.76 100 Sultan
+79 44.84 -75.55 225 Spencerville
+80 42.81 -82.28 54 Brigden
+81 48.53 -89.59 4 Kaministiquia
+82 43.22 -81.07 163 Uniondale
+83 42.84 -80.3 186 Simcoe
+84 43.98 -78.62 211 Orono
+85 42.88 -80.11 202 Jarvis
+86 46.65 -80.95 243 Hanmer
+87 42.6 -81.61 165 West Lorne
+88 46.48 -84.07 177 Echo Bay
+89 49.78 -86.53 114 Long Lac
+90 48.55 -89.79 122 Glen Water
+91 45.55 -74.9 107 Alfred
+92 49.78 -94.44 159 Jaffray Melick
+93 51.01 -93.83 5 Red Lake
+94 43.16 -79.1 224 St. Davids
+95 45.67 -79.64 187 Magnetawan
+96 43.16 -80.9 191 Embro
+97 43.65 -80.02 117 Halton Hills
+98 43.83 -80.54 176 Arthur
+99 44.75 -78.09 197 Apsley
+100 45.6 -80.38 239 Pointe au Baril
+101 47.65 -80.77 34 Gowganda
+102 45.55 -75.28 84 Clarence-Rockland
+103 43.05 -82.09 35 Aberarder
+104 48.68 -85.98 240 Hemlo
+105 42.91 -81.3 221 Lambeth
+106 42.29 -82.71 184 Belle River
+107 44.31 -79.2 199 Pefferlaw
+108 46.55 -80.86 79 Garson
+109 44.36 -77.59 15 Stirling
+110 45.74 -76.86 229 Beachburg
+111 42.84 -82.46 25 Mooretown
+112 44.19 -78.06 65 Roseneath
+113 42.93 -80.6 124 Otterville
+114 44.99 -81.25 233 Lion`s Head
+115 43.69 -79.34 24 East York
+116 44.33 -76.16 220 Gananoque
+117 50.24 -90.7 148 Savant Lake
+118 45.62 -74.69 56 L`Orignal
+119 44.9 -75.18 200 Morrisburg
+120 44.6 -78.94 161 Victoria
+121 43.89 -81.31 241 Wingham
+122 43.78 -79.23 123 Scarborough
+123 44.31 -77.96 138 Hastings
+124 48.15 -80.03 46 Kirkland Lake
+125 46.45 -80.42 113 Warren
+126 48.69 -93.0 21 Bear`s Passage
+127 49.41 -94.1 38 Sioux Narrows
+128 43.42 -80.3 67 Hespeler
+129 43.09 -79.08 140 Niagara Falls
+130 45.12 -79.58 189 Port Carling
+131 42.9 -79.62 212 Dunnville
+132 43.76 -79.41 104 North York
+133 43.93 -78.6 215 Clarington
+134 45.98 -80.55 37 Henvey Inlet First Nation
+135 42.31 -82.55 227 Stoney Point
+136 44.51 -77.47 135 Madoc
+137 46.21 -82.08 246 Massey
+138 42.74 -81.35 112 Shedden
+139 43.54 -80.17 137 Arkell
+140 43.04 -82.16 196 Camlachie
+141 42.88 -81.09 170 Belmont
+142 43.14 -79.48 8 Lincoln
+143 43.14 -79.37 182 Jordan
+144 42.1 -83.11 51 Amherstburg
+145 48.24 -82.44 96 Foleyet
+146 46.39 -79.26 52 Redbridge
+147 44.45 -78.64 178 Dunsford
+148 47.67 -81.72 105 Gogama
+149 43.58 -80.73 141 Linwood
+150 48.77 -80.67 13 Iroquois Falls
+151 43.47 -81.2 70 Mitchell
+152 44.26 -79.18 53 Udora
+153 48.35 -89.27 2 Fort William First Nation
+154 43.91 -78.79 203 Courtice
+155 44.57 -80.94 125 Owen Sound
+156 43.27 -80.66 68 Bright
+157 44.96 -76.98 190 Plevna
+158 45.86 -82.86 247 Silver Water
+159 44.33 -76.88 116 Newburgh
+160 43.38 -80.71 62 New Hamburg
+161 44.39 -76.47 73 Inverary
+162 43.22 -79.99 40 Ancaster
+163 43.92 -80.09 167 Orangeville
+164 43.96 -78.96 149 Brooklin
+165 45.12 -78.6 155 West Guilford
+166 48.62 -93.67 134 Devlin
+167 44.17 -78.09 193 Alderville First Nation
+168 45.31 -74.64 30 Alexandria
+169 43.09 -82.0 136 Forest
+170 42.91 -81.5 207 Mount Brydges
+171 42.83 -79.93 232 Selkirk
+172 42.32 -81.85 248 Rondeau
+173 49.78 -92.84 43 Dryden
+174 43.3 -80.62 16 Plattsville
+175 44.37 -80.85 9 Chatsworth
+176 44.9 -76.25 143 Perth
+177 45.84 -79.38 205 South River
+178 44.83 -80.2 213 Christian Island
+179 45.3 -76.72 192 Calabogie
+180 42.31 -82.89 18 Tecumseh
+181 43.18 -82.0 235 Chippewas of Kettle/Stony Poin
+182 42.98 -81.25 185 London
+183 49.97 -94.39 228 Redditt
+184 49.82 -93.0 158 Oxdrift
+185 43.15 -81.53 45 Ailsa Craig
+186 45.51 -76.94 201 Douglas
+187 44.35 -79.04 63 Cannington
+188 44.49 -77.0 175 Tamworth
+189 42.23 -82.55 145 Comber
+190 42.82 -82.47 194 Courtright
+191 43.22 -81.87 80 Thedford
+192 45.26 -75.36 209 Russell
+193 43.97 -79.13 214 Claremont
+194 44.63 -78.0 204 Nephton
+195 46.34 -79.79 231 Nipissing First Nation
+196 49.41 -94.1 29 Nestor Falls
+197 44.41 -76.02 1 Lansdowne
+198 43.23 -79.72 95 Stoney Creek
+199 45.54 -77.1 206 Eganville
+200 42.58 -80.43 219 Long Point
+201 45.9 -77.28 181 Petawawa
+202 44.18 -81.64 19 Kincardine
+203 48.72 -86.38 61 Marathon
+204 49.21 -84.77 152 Hornepayne
+205 44.1 -79.49 57 Holland Landing
+206 45.06 -78.08 14 Deer Lake
+207 43.53 -80.77 168 Wellesley
+208 45.31 -75.09 198 Casselman
+209 43.91 -78.69 130 Bowmanville
+210 43.0 -79.48 76 Wellandport
+211 42.97 -82.41 174 Sarnia
+212 49.02 -88.27 42 Nipigon
+213 46.58 -81.2 92 Chelmsford
+214 43.4 -80.67 3 Baden
+215 43.32 -79.9 150 Waterdown
+216 43.94 -79.38 98 Gormley
+217 44.01 -77.89 87 Colborne
+218 42.81 -80.08 183 Nanticoke
+219 46.17 -77.7 147 Rolphton
+220 44.17 -80.39 217 Dundalk
+221 43.73 -80.95 121 Listowel
+222 43.71 -80.38 102 Fergus
+223 44.61 -80.59 146 Meaford
+224 45.61 -74.6 77 Hawkesbury
+225 44.28 -79.89 238 Borden
+226 42.57 -82.51 66 Ojibways of Walpole Island Fir
+227 45.0 -78.01 139 Cardiff
+228 46.3 -83.79 22 Bruce Mines
+229 44.47 -77.31 188 Tweed
+230 44.48 -75.88 216 Mallorytown
+231 45.43 -76.35 41 Arnprior
+232 48.38 -89.25 17 Thunder Bay
+233 42.74 -80.58 234 Langton
+234 45.23 -76.19 115 Almonte
+235 44.06 -79.46 78 Newmarket
+236 43.47 -79.69 222 Oakville
+237 43.95 -78.29 101 Port Hope
+238 46.19 -82.34 111 Spanish
+239 45.52 -74.65 47 Vankleek Hill
+240 44.41 -78.83 33 Cambray
+DEMAND_SECTION
+1 0 23 Colchester
+2 574 50 Frankford
+3 291 154 Paris
+4 1348 103 Tobermory
+5 1777 82 Deep River
+6 439 109 Carnarvon
+7 1161 97 Winchester
+8 746 132 Cottam
+9 687 180 Port Stanley
+10 1621 250 Shakespeare
+11 1807 60 Fenwick
+12 1240 164 Auburn
+13 1211 173 Gooderham
+14 902 249 Newtonville
+15 870 151 Webbwood
+16 397 245 Embrun
+17 504 108 Bala
+18 1457 218 Deseronto
+19 787 106 Jellicoe
+20 1878 156 Powassan
+21 1598 83 Woodbridge
+22 403 91 Lafontaine
+23 856 195 Port Perry
+24 265 90 Scotland
+25 247 75 Trenton
+26 1554 129 Muskoka Falls
+27 457 6 Birch Island
+28 1096 10 Ayr
+29 2 64 Bradford West Gwillimbury
+30 288 11 Paquette Corner
+31 1799 93 Fenelon Falls
+32 1852 230 Barwick
+33 1742 26 York
+34 1135 58 Caramat
+35 219 55 Kitchener
+36 1567 223 Strathroy
+37 1452 160 Thurlow
+38 1383 142 Melbourne
+39 659 94 Stoke`s Bay
+40 1642 36 Restoule
+41 1056 144 Hawk Junction
+42 782 126 Stewarttown
+43 454 74 St. Charles
+44 1610 120 Bobcaygeon
+45 1194 110 Charlton
+46 1855 81 Yarker
+47 1270 31 Markstay
+48 6 39 Prescott
+49 626 119 Brockville
+50 272 208 Noelville
+51 565 157 Wardsville
+52 1377 44 Mount Forest
+53 817 169 Burk`s Falls
+54 373 131 Kintore
+55 1732 85 Markdale
+56 1690 127 Marmora
+57 1788 7 Thorne
+58 797 48 Whitefish River First Nation
+59 1187 128 Cornwall
+60 358 153 Metcalfe
+61 1281 49 Hamilton
+62 176 20 Harrow
+63 1640 88 Sandwich
+64 806 179 Innisfil
+65 294 236 Moonbeam
+66 526 171 Unionville
+67 572 59 Elora
+68 1791 118 Walden
+69 311 133 Pembroke
+70 907 210 Sundridge
+71 370 244 Bradford
+72 1645 162 Iron Bridge
+73 842 69 Grafton
+74 263 172 Sparta
+75 1014 99 Maitland
+76 1260 242 Perrault Falls
+77 1744 72 Chapleau
+78 428 100 Sultan
+79 537 225 Spencerville
+80 260 54 Brigden
+81 404 4 Kaministiquia
+82 1202 163 Uniondale
+83 824 186 Simcoe
+84 340 211 Orono
+85 943 202 Jarvis
+86 1291 243 Hanmer
+87 1713 165 West Lorne
+88 737 177 Echo Bay
+89 1378 114 Long Lac
+90 1871 122 Glen Water
+91 1718 107 Alfred
+92 1775 159 Jaffray Melick
+93 1237 5 Red Lake
+94 1294 224 St. Davids
+95 125 187 Magnetawan
+96 1823 191 Embro
+97 513 117 Halton Hills
+98 1096 176 Arthur
+99 720 197 Apsley
+100 512 239 Pointe au Baril
+101 4 34 Gowganda
+102 613 84 Clarence-Rockland
+103 660 35 Aberarder
+104 800 240 Hemlo
+105 418 221 Lambeth
+106 428 184 Belle River
+107 535 199 Pefferlaw
+108 926 79 Garson
+109 1367 15 Stirling
+110 1831 229 Beachburg
+111 41 25 Mooretown
+112 1330 65 Roseneath
+113 1414 124 Otterville
+114 900 233 Lion`s Head
+115 1052 24 East York
+116 1787 220 Gananoque
+117 1111 148 Savant Lake
+118 1582 56 L`Orignal
+119 281 200 Morrisburg
+120 970 161 Victoria
+121 1873 241 Wingham
+122 1027 123 Scarborough
+123 1736 138 Hastings
+124 1235 46 Kirkland Lake
+125 580 113 Warren
+126 446 21 Bear`s Passage
+127 571 38 Sioux Narrows
+128 1495 67 Hespeler
+129 434 140 Niagara Falls
+130 1572 189 Port Carling
+131 1012 212 Dunnville
+132 162 104 North York
+133 420 215 Clarington
+134 57 37 Henvey Inlet First Nation
+135 1485 227 Stoney Point
+136 5 135 Madoc
+137 230 246 Massey
+138 1346 112 Shedden
+139 1076 137 Arkell
+140 999 196 Camlachie
+141 1180 170 Belmont
+142 1803 8 Lincoln
+143 1379 182 Jordan
+144 926 51 Amherstburg
+145 960 96 Foleyet
+146 1569 52 Redbridge
+147 1710 178 Dunsford
+148 1475 105 Gogama
+149 234 141 Linwood
+150 1409 13 Iroquois Falls
+151 893 70 Mitchell
+152 803 53 Udora
+153 960 2 Fort William First Nation
+154 195 203 Courtice
+155 654 125 Owen Sound
+156 1430 68 Bright
+157 1215 190 Plevna
+158 1242 247 Silver Water
+159 288 116 Newburgh
+160 877 62 New Hamburg
+161 891 73 Inverary
+162 292 40 Ancaster
+163 438 167 Orangeville
+164 743 149 Brooklin
+165 1848 155 West Guilford
+166 503 134 Devlin
+167 1609 193 Alderville First Nation
+168 1029 30 Alexandria
+169 702 136 Forest
+170 1796 207 Mount Brydges
+171 1318 232 Selkirk
+172 1270 248 Rondeau
+173 772 43 Dryden
+174 764 16 Plattsville
+175 756 9 Chatsworth
+176 122 143 Perth
+177 1428 205 South River
+178 1624 213 Christian Island
+179 1414 192 Calabogie
+180 156 18 Tecumseh
+181 1037 235 Chippewas of Kettle/Stony Poin
+182 932 185 London
+183 1661 228 Redditt
+184 1187 158 Oxdrift
+185 994 45 Ailsa Craig
+186 320 201 Douglas
+187 1145 63 Cannington
+188 1336 175 Tamworth
+189 769 145 Comber
+190 811 194 Courtright
+191 1634 80 Thedford
+192 616 209 Russell
+193 1632 214 Claremont
+194 245 204 Nephton
+195 760 231 Nipissing First Nation
+196 714 29 Nestor Falls
+197 1831 1 Lansdowne
+198 299 95 Stoney Creek
+199 415 206 Eganville
+200 1784 219 Long Point
+201 1729 181 Petawawa
+202 1527 19 Kincardine
+203 1677 61 Marathon
+204 1866 152 Hornepayne
+205 1757 57 Holland Landing
+206 751 14 Deer Lake
+207 198 168 Wellesley
+208 493 198 Casselman
+209 1291 130 Bowmanville
+210 457 76 Wellandport
+211 1490 174 Sarnia
+212 297 42 Nipigon
+213 204 92 Chelmsford
+214 1192 3 Baden
+215 672 150 Waterdown
+216 1646 98 Gormley
+217 922 87 Colborne
+218 1756 183 Nanticoke
+219 1185 147 Rolphton
+220 1319 217 Dundalk
+221 44 121 Listowel
+222 698 102 Fergus
+223 1592 146 Meaford
+224 266 77 Hawkesbury
+225 660 238 Borden
+226 739 66 Ojibways of Walpole Island Fir
+227 828 139 Cardiff
+228 942 22 Bruce Mines
+229 1565 188 Tweed
+230 285 216 Mallorytown
+231 1132 41 Arnprior
+232 1163 17 Thunder Bay
+233 643 234 Langton
+234 1259 115 Almonte
+235 979 78 Newmarket
+236 1330 222 Oakville
+237 1069 101 Port Hope
+238 689 111 Spanish
+239 71 47 Vankleek Hill
+240 71 33 Cambray
+DEPOT_SECTION
+1
+-1
+EOF

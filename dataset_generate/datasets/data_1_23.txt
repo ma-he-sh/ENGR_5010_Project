@@ -1,0 +1,55 @@
+NAME : data_1_23
+CAPACITY : 2000
+DATAFILE : distance_toronto.csv
+NODE_COORD_SECTION
+1 43.93 -78.6 6 Clarington
+2 43.73 -79.76 14 Brampton
+3 43.9 -78.94 7 Whitby
+4 44.34 -79.1 8 Brock
+5 43.9 -78.87 19 Oshawa
+6 44.23 -76.49 5 Kingston
+7 43.59 -79.64 3 Mississauga
+8 43.65 -80.02 16 Halton Hills
+9 43.85 -79.02 13 Ajax
+10 43.33 -79.8 15 Burlington
+11 44.01 -79.45 17 Aurora
+12 43.65 -79.38 2 Toronto
+13 44.1 -79.44 1 East Gwillimbury
+14 44.11 -79.12 10 Uxbridge
+15 44.3 -79.44 20 Georgina
+16 43.84 -79.87 23 Caledon
+17 43.86 -79.51 21 Vaughan
+18 43.52 -79.88 18 Milton
+19 44.06 -79.46 22 Newmarket
+20 43.84 -79.09 4 Pickering
+21 43.88 -79.44 12 Richmond Hill
+22 43.47 -79.69 11 Oakville
+23 43.86 -79.34 9 Markham
+DEMAND_SECTION
+1 0 6 Clarington
+2 809 14 Brampton
+3 1482 7 Whitby
+4 382 8 Brock
+5 38 19 Oshawa
+6 1331 5 Kingston
+7 474 3 Mississauga
+8 1251 16 Halton Hills
+9 1166 13 Ajax
+10 1159 15 Burlington
+11 818 17 Aurora
+12 431 2 Toronto
+13 481 1 East Gwillimbury
+14 127 10 Uxbridge
+15 129 20 Georgina
+16 1860 23 Caledon
+17 1873 21 Vaughan
+18 1587 18 Milton
+19 1817 22 Newmarket
+20 1692 4 Pickering
+21 1176 12 Richmond Hill
+22 1241 11 Oakville
+23 1500 9 Markham
+DEPOT_SECTION
+1
+-1
+EOF
