@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import pandas as pd
+import random as rand
 
 def plot_paths( graph, cityref, bestSol ):
     print("best solution:", str(int(bestSol[1])), str(bestSol), " num trucks:", len(bestSol[0]))
@@ -40,7 +41,13 @@ def plot_paths( graph, cityref, bestSol ):
         points["x"].append(deportX)
         points["y"].append(deportY)
 
-        plt.plot(points["x"], points["y"], marker='o', linestyle="--")
+
+        r = rand.random()
+        b = rand.random()
+        g = rand.random()
+        color = (r, g, b)
+
+        plt.plot(points["x"], points["y"], marker='o', linestyle="--", color=color)
 
     # draw labels
     for city in graph:

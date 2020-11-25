@@ -42,7 +42,7 @@ def get_data( list, max_demand, custCount=0 ):
     index = 1
     for city in randomCitySample:
         row = cordinates.loc[city]
-        nodes += "{index} {lat} {lng} {refid} {city}".format( index=index, lat=round(row['lat'], 2), lng=round(row['lng'], 2), refid=int(row['0']), city=city )
+        nodes += "{index} {lat} {lng} {refid} {city}".format( index=index, lat=row['lat'], lng=row['lng'], refid=int(row['0']), city=city )
         
         capacity = int( abs( rand.random() * ( min_demand - max_demand ) ) )
         if index is 1:
