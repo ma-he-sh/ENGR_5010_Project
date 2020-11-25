@@ -1,7 +1,8 @@
 import numpy as np
 from functions import dataset
-
 from functools import reduce
+
+import pandas as pd
 
 class Ant():
     startPoint = 1
@@ -83,11 +84,12 @@ class ACOVRP():
     num_ants = 2
     vehicle_capacity = 0
     delivery_demand = {}
+    cityref = {}
     MAX_NFC  = 1000
 
     graph = {}
 
-    def __init__(self, alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, MAX_NFC):
+    def __init__(self, alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, cityref, datafile, MAX_NFC):
         self.MAX_NFC = MAX_NFC
         self.num_ants = num_ants
         self.theta = theta
@@ -97,12 +99,18 @@ class ACOVRP():
         self.alpha = alpha
         self.vehicle_capacity = vehicle_capacity
         self.delivery_demand = delivery_demand
+        self.cityref = cityref
+        self.datafile = datafile
 
-    def get_euclidean_distance(self, x1, x2, y1, y2):
+        tempdata = pd.read_csv( "../helpers/raw_data/" + datafile )
+        self.citydata = tempdata.set_index("x")
+
+    def get_city_distance(self, cityIndex1, cityIndex2 ):
         """
         Euclidean distance calculate
         """
-        return np.sqrt( ( x1 - x2 ) ** 2 + ( y1 - y2 ) ** 2 )
+        distance = self.citydata.loc[cityIndex1][cityIndex2]
+        return distance
 
     def set_graph( self, graph ):
         self.graph = graph
@@ -114,7 +122,7 @@ class ACOVRP():
         edges = {}
         for pointA in self.graph.keys():
             for pointB in self.graph.keys():
-                edges[(pointA, pointB)] = self.get_euclidean_distance( self.graph[pointA][0], self.graph[pointB][0], self.graph[pointA][1], self.graph[pointB][1] )
+                edges[(pointA, pointB)] = self.get_city_distance( self.cityref[pointA], self.cityref[pointB] )
 
         return vertices, edges
 

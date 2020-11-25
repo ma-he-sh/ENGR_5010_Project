@@ -1,21 +1,47 @@
-import re
-
 def dataset( filename ):
-    f = open("./dataset/" + filename , "r")
-    content = f.read()
-    optimalValue = re.search("Optimal value: (\d+)", content, re.MULTILINE)
-    if(optimalValue != None):
-        optimalValue = optimalValue.group(1)
-    else:
-        optimalValue = re.search("Best value: (\d+)", content, re.MULTILINE)
-        if(optimalValue != None):
-            optimalValue = optimalValue.group(1)
-    capacity = re.search("^CAPACITY : (\d+)$", content, re.MULTILINE).group(1)
-    graph = re.findall(r"^(\d+) (\d+) (\d+)$", content, re.MULTILINE)
-    demand = re.findall(r"^(\d+) (\d+)$", content, re.MULTILINE)
-    graph = {int(a):(int(b),int(c)) for a,b,c in graph}
-    demand = {int(a):int(b) for a,b in demand}
-    capacity = int(capacity)
-    optimal = int(optimalValue)
-    return capacity, graph, demand, optimal
+    f = open("../dataset_generate/datasets/" + filename , "r")
+    lines = f.readlines()
 
+
+    capacity = 0
+    datafile = ''
+
+    NODE_SECTION = False
+    DEMAND_SECTION = False
+    DEPOT_SECTION = False
+
+    graph = {}
+    demand = {}
+    cityref = {}
+
+    for line in lines:
+        if 'CAPACITY' in line:
+            capacity = int(line.split(":")[1].strip(' '))
+        
+        if 'DATAFILE' in line:
+            datafile = line.split(":")[1].strip(" ").rstrip("\n")
+
+        if "NODE_COORD_SECTION" in line:
+            NODE_SECTION = True
+
+        if "DEMAND_SECTION" in line:
+            NODE_SECTION = False
+            DEMAND_SECTION = True
+
+        if "DEPOT_SECTION" in line:
+            NODE_SECTION = False
+            DEMAND_SECTION = False
+            DEPOT_SECTION = True
+
+        if NODE_SECTION and not 'NODE_COORD_SECTION' in line:
+            parts = line.split(" ")
+            city = " ".join(line.split(" ", 4)[4:]).rstrip("\n")
+
+            graph[int(parts[0])] = (float( parts[1] ), float( parts[2] ))
+            cityref[int(parts[0])] = city
+
+        if DEMAND_SECTION and not 'DEMAND_SECTION' in line:
+            parts = line.split(" ")
+            demand[int(parts[0])] = int(parts[1])
+
+    return capacity, graph, demand, cityref, datafile

@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 import pandas as pd
 
-def plot_paths( graph, bestSol ):
+def plot_paths( graph, cityref, bestSol ):
     print("best solution:", str(int(bestSol[1])), str(bestSol), " num trucks:", len(bestSol[0]))
 
     # deport location
@@ -42,12 +42,17 @@ def plot_paths( graph, bestSol ):
 
         plt.plot(points["x"], points["y"], marker='o', linestyle="--")
 
+    # draw labels
+    for city in graph:
+        label = cityref[city]
+        plt.annotate( cityref[city], graph[city], textcoords="offset points", xytext=(0, 10), ha="center", fontsize=6 )
+
+    #img = plt.imread("./ontario_map.jpg")
+    #fig, ax = plt.subplots()
+
     plt.plot(deportX, deportY, marker='x')
     plt.title('Paths')
     plt.show()
-
-def get_city_list():
-    
 
 if __name__ == '__main__':
     """
@@ -61,11 +66,8 @@ if __name__ == '__main__':
     MAX_NFC: max number of function calls
     """
 
-    vehicle_capacity, graph, delivery_demand, optimal = dataset('dataset2.txt');
-    print( vehicle_capacity )
-    print( graph )
-    print( delivery_demand )
-    print( optimal )
+    vehicle_capacity = 2000
+    capacity, graph, delivery_demand, cityref, datafile = dataset('data_1_23.txt');
 
     alpha = 2
     beta = 5
@@ -75,9 +77,9 @@ if __name__ == '__main__':
     num_ants = 22
     MAX_NFC = 10
 
-    vrp = ACOVRP( alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, MAX_NFC )
+    vrp = ACOVRP( alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, cityref, datafile, MAX_NFC )
     vrp.set_graph( graph )
     bestSol = vrp.process()
     
     if bestSol is not None:
-        plot_paths( graph, bestSol )
+        plot_paths( graph, cityref, bestSol )
