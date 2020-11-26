@@ -44,7 +44,7 @@ class Ant():
             while( len( self.vertices ) is not 0 ):
                 prob = list()
                 for x in self.vertices:
-                    p = ((self.pheromones[(min(x, city), max(x, city))]) ** self.alpha) * ((1 / self.edges[(min(x, city), max(x, city))]) ** self.beta)
+                    p = ((self.pheromones[(min(x, city), max(x, city))]) ** self.alpha) * ((1 / self.edges[(min(x, city), max(x, city))] if self.edges[(min(x, city), max(x, city))] else 0 ) ** self.beta)
                     prob.append(p)
                 
                 probability = (prob / np.sum( prob ))
@@ -122,7 +122,7 @@ class ACOVRP():
         edges = {}
         for pointA in self.graph.keys():
             for pointB in self.graph.keys():
-                edges[(pointA, pointB)] = self.get_city_distance( self.cityref[pointA], self.cityref[pointB] )
+                edges[(pointA, pointB)] = int(self.get_city_distance( self.cityref[pointA], self.cityref[pointB] ))
 
         return vertices, edges
 

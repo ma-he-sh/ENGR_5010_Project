@@ -1,7 +1,7 @@
 import pandas as pd
 import random as rand
 
-max_capacity = 2000 # fixed max capacity
+max_capacity = 400 # fixed max capacity
 min_demand   = 100  # min capacity
 
 #vehical capcities

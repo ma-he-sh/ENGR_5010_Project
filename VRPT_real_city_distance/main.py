@@ -74,7 +74,8 @@ if __name__ == '__main__':
     """
 
     vehicle_capacity = 2000
-    capacity, graph, delivery_demand, cityref, datafile = dataset('data_1_23.txt');
+    capacity, graph, delivery_demand, cityref, datafile = dataset('data_3_96.txt');
+    #print( graph )
 
     alpha = 2
     beta = 5
