@@ -2,7 +2,7 @@ import numpy as np
 from functions import dataset
 from functools import reduce
 
-import pandas as pd
+import random as rand
 
 class Ant():
     startPoint = 1
@@ -35,7 +35,7 @@ class Ant():
         """
         while( len( self.vertices ) is not 0 ):
             path =  list()
-            city = np.random.choice(self.vertices)
+            city = rand.choice( self.vertices ) #np.random.choice(self.vertices)
             capacity = self.maxCapacity - self.demand[ city ]
             
             path.append( city )
@@ -47,7 +47,7 @@ class Ant():
                     p = ((self.pheromones[(min(x, city), max(x, city))]) ** self.alpha) * ((1 / self.edges[(min(x, city), max(x, city))] if self.edges[(min(x, city), max(x, city))] else 0 ) ** self.beta)
                     prob.append(p)
                 
-                probability = (prob / np.sum( prob ))
+                probability = (prob / np.sum( prob ) if np.sum( prob ) else [1] )
 
                 city = np.random.choice( self.vertices, p=probability )
                 capacity = capacity - self.demand[city]
@@ -89,7 +89,7 @@ class ACOVRP():
 
     graph = {}
 
-    def __init__(self, alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, cityref, datafile, MAX_NFC):
+    def __init__(self, alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, cityref, citydata, MAX_NFC):
         self.MAX_NFC = MAX_NFC
         self.num_ants = num_ants
         self.theta = theta
@@ -100,10 +100,12 @@ class ACOVRP():
         self.vehicle_capacity = vehicle_capacity
         self.delivery_demand = delivery_demand
         self.cityref = cityref
-        self.datafile = datafile
 
-        tempdata = pd.read_csv( "../helpers/raw_data/" + datafile )
-        self.citydata = tempdata.set_index("x")
+        print("----------------")
+        print( "alpha: ", self.alpha, " beta: ", self.beta, " sigma: ", self.sigma, " rho: ", self.rho, " theta: ", self.theta, " ants: ", self.num_ants, " max_nfc: ", self.MAX_NFC, " max_vehicle_cap: ", self.vehicle_capacity )
+        print("----------------")
+
+        self.citydata = citydata
 
     def get_city_distance(self, cityIndex1, cityIndex2 ):
         """
@@ -187,7 +189,7 @@ class ACOVRP():
                 rate = ant.get_solution()
                 sols.append((solution, rate))
             bestSol = self.update_global_pheromone( sols, pheromones, bestSol )
-            print( "generation:", NFC, " best:", int(bestSol[1]), " path:", str( bestSol[0] ) )
+            #print( "generation:", NFC, " best:", int(bestSol[1]), " path:", str( bestSol[0] ) )
             NFC += 1
 
         return bestSol
