@@ -77,7 +77,7 @@ if __name__ == '__main__':
     MAX_NFC: max number of function calls
     """
 
-    capacity, graph, delivery_demand, cityref, datafile = dataset('data_3_240.txt');
+    capacity, graph, delivery_demand, cityref, datafile = dataset('data_3_240.txt')
     #print( graph )
 
     alpha = 1                   # 1
