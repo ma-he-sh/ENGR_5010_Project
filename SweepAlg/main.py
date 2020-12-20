@@ -19,6 +19,10 @@ if __name__ == '__main__':
     tempdata = pd.read_csv( "../helpers/raw_data/" + datafile )
     citydata = tempdata.set_index("x")
 
+    capacity = 2000
+
+
+
     sweepAlg = Sweep( capacity, delivery_demand, cityref, citydata )
     sweepAlg.set_graph( graph )
 

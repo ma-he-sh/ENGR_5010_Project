@@ -1,11 +1,13 @@
 import numpy as np
 import random as rand
 import math as mt
+import copy
 
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 
 class Customer:
-    def __init__(self, location, posX, posY, demand ):
+    def __init__(self, index, location, posX, posY, demand ):
+        self.index    = index
         self.location = location
         self.demand   = demand
         self.posX     = posX
@@ -21,40 +23,36 @@ class Customer:
         angle = mt.degrees(mt.atan( opposite / adjacent ))
         self.angle = ( 90 - angle ) % 360
 
-    def getDepotAngle(self):
-        return self.angle
-
 class TSP:
     def __init__(self, num_customers, num_vehicles, depot_index ):
-        self.num_customer  = num_customers
-        self.num_vehicles = num_vehicles
-        self.depot_index   = depot_index
-
-    def get_city_distances(self, cityIndex1, cityIndex2):
-        """
-        Get distance with distance matrix
-        """
-        distance = self.citydata.loc[cityIndex1][cityIndex2]
-        return distance
-
-    def get_routes(self):
+        self.num_customers   = num_customers
+        self.num_vehicles   = num_vehicles
+        self.depot_index    = depot_index
+    
+    def get_routes(self, cluster, citydata ):
         routes = []
         if self.num_customers > 0:
-            print("num customers", self.num_customers )
-
             # Create the routing index manager
             manager = pywrapcp.RoutingIndexManager(self.num_customers, self.num_vehicles, self.depot_index )
 
             # Create Routing Model
             routing = pywrapcp.RoutingModel( manager )
 
-            # Create and register a transit callback
-            def distance_callback(from_index, to_index):
-                return 1
+            def get_distance_callback( clustIndex1, clustIndex2 ):
+                """
+                get distance with distance matrix
+                """
+                cityIndex1 = cluster[clustIndex1].location
+                cityIndex2 = cluster[clustIndex2].location
+
+                distance = float(citydata.loc[cityIndex1][cityIndex2])
+                #print( "city distance", cityIndex1, cityIndex2, distance )
+
+                return distance
 
             # Define cost of each arc
-            transient_callback_index = routing.RegisterTransitCallback( distance_callback )
-            routing.SetArcCostEvaluatorOfAllVehicales( transit_callback_index )
+            transit_callback_index = routing.RegisterTransitCallback( get_distance_callback )
+            routing.SetArcCostEvaluatorOfAllVehicles( transit_callback_index )
 
             # Settings first solution heuristic
             search_parameters = pywrapcp.DefaultRoutingSearchParameters()
@@ -63,7 +61,7 @@ class TSP:
 
             solution = routing.SolveWithParameters( search_parameters )
             if solution:
-                routeNode = routing.Start( self.depot_index )
+                routeNode = routing.Start( 0 )
                 while not routing.IsEnd( routeNode ):
                     routes.append( routeNode )
                     routeNode = solution.Value( routing.NextVar( routeNode ) )
@@ -90,9 +88,9 @@ class Sweep:
 
         for i in self.graph.keys():
             demand = 0
-            #print( self.graph[i][0], self.cityref[i], self.delivery_demand[i])
+            #print( i, self.graph[i][0], self.cityref[i], self.delivery_demand[i])
             demand = self.delivery_demand[i]
-            cust = Customer( self.cityref[i], float(self.graph[i][0]), float(self.graph[i][1]), int(demand) )
+            cust = Customer( i, self.cityref[i], float(self.graph[i][0]), float(self.graph[i][1]), int(demand) )
             CustomerList.append( cust )
 
         depot = CustomerList[0]  # set the depot
@@ -104,10 +102,42 @@ class Sweep:
         CustomerList.sort(key=lambda cust:cust.angle, reverse=False)
         self.CustomerList = CustomerList
 
-    def init_customers(self):
-        return 1
+    def get_cluster(self):
+        cluster = []
+        tmpCluster = []
+
+        depot = self.CustomerList[0]
+        self.CustomerList.pop(0)
+
+        deepCustomer = copy.deepcopy( self.CustomerList )
+        currCapacity = 0
+
+        while len(deepCustomer):
+            cust = deepCustomer.pop(0)
+            #print(cust)
+
+            if currCapacity + cust.demand <= self.vehicle_capacity:
+                tmpCluster.append( cust )
+                currCapacity += cust.demand
+            else:
+                cluster.append(tmpCluster)
+                tmpCluster = []
+                tmpCluster.append(cust)
+                currCapacity = cust.demand
+        cluster.append(tmpCluster)
+        return cluster, depot
 
     def process(self):
-        print( self.CustomerList )
-        bestSol = None
+        bestSol = []
+        cluster, depot = self.get_cluster()
+        #print(len(cluster), cluster, depot, depot.index )
 
+        for path in cluster:
+            path.insert(0, depot)
+
+            tsp = TSP( len(path), 1, depot.index )
+            route = tsp.get_routes( path, self.citydata )
+            bestSol.append( route )
+
+
+        return bestSol
