@@ -5,15 +5,24 @@ import math as mt
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 
 class Customer:
-    def __init__(self, location, posX, posy, demand ):
+    def __init__(self, location, posX, posY, demand ):
         self.location = location
         self.demand   = demand
-        self.x        = posx
-        self.y        = posy
+        self.posX     = posX
+        self.posY     = posY
         self.angle    = 0
 
-    def setDepotAngle(self, angle):
-        self.angle = angle
+    def calc_city_angle(self, depotX, depotY):
+        """
+        Get angle from the depot to ref city using slope
+        """
+        opposite = ( self.posX - depotX )
+        adjacent = ( self.posY - depotY )
+        angle = mt.degrees(mt.atan( opposite / adjacent ))
+        self.angle = ( 90 - angle ) % 360
+
+    def getDepotAngle(self):
+        return self.angle
 
 class TSP:
     def __init__(self, num_customers, num_vehicles, depot_index ):
@@ -64,27 +73,41 @@ class TSP:
         return routes
 
 class Sweep:
+    graph = {}
+
     def __init__( self, vehicle_capacity, delivery_demand, cityref, citydata ):
         print( "sweep algorithm" )
         self.cityref      = cityref
         self.vehicle_capacity = vehicle_capacity
-        self.deliery_demand   = delivery_demand 
+        self.delivery_demand   = delivery_demand
         self.cityref          = cityref
         self.citydata         = citydata
         self.CustomerList = []
 
+    def set_graph(self, graph):
+        self.graph = graph
+        CustomerList = []
+
+        for i in self.graph.keys():
+            demand = 0
+            #print( self.graph[i][0], self.cityref[i], self.delivery_demand[i])
+            demand = self.delivery_demand[i]
+            cust = Customer( self.cityref[i], float(self.graph[i][0]), float(self.graph[i][1]), int(demand) )
+            CustomerList.append( cust )
+
+        depot = CustomerList[0]  # set the depot
+        for custInd in range(1, len(self.CustomerList)):
+            #print( CustomerList[custInd].location )
+            CustomerList[custInd].calc_city_angle( depot.posX, depot.posY )
+            #print( CustomerList[custInd].angle )
+
+        CustomerList.sort(key=lambda cust:cust.angle, reverse=False)
+        self.CustomerList = CustomerList
+
     def init_customers(self):
         return 1
 
-    def get_city_angle(self, posX, posY, depotX, depotY):
-        """
-        Get angle from the depot to ref city using slope
-        """
-        opposite = ( posX - depotX )
-        adjacent = ( posY - depotY )
-        angle = mt.degrees(mt.atan( opposite / adjacent ))
-        return ( 90 - angle ) % 360
-
     def process(self):
+        print( self.CustomerList )
         bestSol = None
 
