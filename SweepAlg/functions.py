@@ -1,10 +1,12 @@
 import matplotlib.pyplot as plt
+import random as rand
 
 def plot_paths( graph, cityref, bestSol, elapsed_time, plot=True ):
     print(str(int(bestSol[1])), "\t", len(bestSol[0]),"\t", elapsed_time, "\t", str(bestSol[0]) )
     #print("best solution:", str(int(bestSol[1])), str(bestSol[0]), " num trucks:", len(bestSol[0]), " elaspsed:", elapsed_time, "s")
 
     if plot:
+        print("GRAPING")
         # deport location
         deportX, deportY = graph.get(1)
 

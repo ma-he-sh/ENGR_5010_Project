@@ -13,7 +13,7 @@ if __name__ == '__main__':
     delivery_demand : Delivery demands
     """
 
-    capacity, graph, delivery_demand, cityref, datafile = dataset('data_1_23.txt')
+    capacity, graph, delivery_demand, cityref, datafile = dataset('data_3_240.txt')
 
     #-------------------------
     tempdata = pd.read_csv( "../helpers/raw_data/" + datafile )

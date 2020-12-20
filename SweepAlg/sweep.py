@@ -84,8 +84,11 @@ class TSP:
         routes = self.prepare_path( cluster )
         if len(routes) > 0:
             for path in routes:
-                paths.append( cluster[path].index )
+                if path != 0: 
+                    # ignore depot which is on index 1
+                    paths.append( cluster[path].index )
 
+            routes.append(0)
             for i in range(len(routes) - 1):
                 pathCurr = routes[i]
                 pathNext = routes[i+1]
@@ -97,13 +100,17 @@ class Sweep:
     graph = {}
 
     def __init__( self, vehicle_capacity, delivery_demand, cityref, citydata ):
-        print( "sweep algorithm" )
+        #print( "sweep algorithm" )
         self.cityref      = cityref
         self.vehicle_capacity = vehicle_capacity
         self.delivery_demand   = delivery_demand
         self.cityref          = cityref
         self.citydata         = citydata
         self.CustomerList = []
+
+        print("-------------------")
+        print(" max_vehicle_cap: ", vehicle_capacity )
+        print("-------------------")
 
     def set_graph(self, graph):
         self.graph = graph
