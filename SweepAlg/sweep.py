@@ -24,12 +24,20 @@ class Customer:
         self.angle = ( 90 - angle ) % 360
 
 class TSP:
-    def __init__(self, num_customers, num_vehicles, depot_index ):
+    def __init__(self, num_customers, num_vehicles, depot_index, citydata ):
         self.num_customers   = num_customers
         self.num_vehicles   = num_vehicles
         self.depot_index    = depot_index
-    
-    def get_routes(self, cluster, citydata ):
+        self.citydata       = citydata
+   
+    def get_distance( self, cityIndex1, cityIndex2 ):
+        """
+        Get matrix distance
+        """
+        distance = float(self.citydata.loc[cityIndex1][cityIndex2])
+        return distance
+
+    def prepare_path(self, cluster ):
         routes = []
         if self.num_customers > 0:
             # Create the routing index manager
@@ -45,7 +53,7 @@ class TSP:
                 cityIndex1 = cluster[clustIndex1].location
                 cityIndex2 = cluster[clustIndex2].location
 
-                distance = float(citydata.loc[cityIndex1][cityIndex2])
+                distance = self.get_distance( cityIndex1, cityIndex2 )
                 #print( "city distance", cityIndex1, cityIndex2, distance )
 
                 return distance
@@ -61,14 +69,29 @@ class TSP:
 
             solution = routing.SolveWithParameters( search_parameters )
             if solution:
-                routeNode = routing.Start( 0 )
+                route = ''
+                routeNode = routing.Start( self.depot_index )
                 while not routing.IsEnd( routeNode ):
                     routes.append( routeNode )
                     routeNode = solution.Value( routing.NextVar( routeNode ) )
-                routes.append( self.depot_index )
             else:
                 return -1
         return routes
+
+    def get_routes(self, cluster ):
+        paths    = []
+        cost    = 0
+        routes = self.prepare_path( cluster )
+        if len(routes) > 0:
+            for path in routes:
+                paths.append( cluster[path].index )
+
+            for i in range(len(routes) - 1):
+                pathCurr = routes[i]
+                pathNext = routes[i+1]
+                cost += self.get_distance( cluster[pathCurr].location, cluster[pathNext].location )
+
+        return paths, cost
 
 class Sweep:
     graph = {}
@@ -114,7 +137,6 @@ class Sweep:
 
         while len(deepCustomer):
             cust = deepCustomer.pop(0)
-            #print(cust)
 
             if currCapacity + cust.demand <= self.vehicle_capacity:
                 tmpCluster.append( cust )
@@ -128,16 +150,21 @@ class Sweep:
         return cluster, depot
 
     def process(self):
-        bestSol = []
         cluster, depot = self.get_cluster()
         #print(len(cluster), cluster, depot, depot.index )
+        bestSol = list()
 
+        sols = []
+        pathCost = 0
         for path in cluster:
             path.insert(0, depot)
 
-            tsp = TSP( len(path), 1, depot.index )
-            route = tsp.get_routes( path, self.citydata )
-            bestSol.append( route )
+            tsp = TSP( len(path), 1, 0, self.citydata )
+            route, cost = tsp.get_routes( path )
+            pathCost += cost
+            sols.append( route )
+        
+        bestSol.append( sols  )
+        bestSol.append( pathCost )
 
-
-        return bestSol
+        return bestSol 

@@ -1,4 +1,4 @@
-from functions import dataset
+from functions import dataset, plot_paths
 from sweep import Sweep
 
 import numpy as np
@@ -21,14 +21,12 @@ if __name__ == '__main__':
 
     capacity = 2000
 
-
-
     sweepAlg = Sweep( capacity, delivery_demand, cityref, citydata )
-    sweepAlg.set_graph( graph )
 
     start_time = time.time()
+    sweepAlg.set_graph( graph )
     bestSol = sweepAlg.process()
     elasped_time = (time.time() - start_time )
     
     if bestSol is not None:
-        print( bestSol )
+        plot_paths( graph, cityref, bestSol, elasped_time, False )
