@@ -1,8 +1,6 @@
-from acovrp import ACOVRP
-from functions import dataset
-
-import numpy as np
 import matplotlib.pyplot as plt
+import random as rand
+import re
 
 def plot_paths( graph, bestSol ):
     print("best solution:", str(int(bestSol[1])), str(bestSol), " num trucks:", len(bestSol[0]))
@@ -44,31 +42,22 @@ def plot_paths( graph, bestSol ):
     plt.title('Paths')
     plt.show()
 
-if __name__ == '__main__':
-    """
-    PARAMS
-    alpha:  relative importance of pheromone
-    beta:   relative importance of heuristic information 
-    sigma:  
-    rho:    pheromone coefficient
-    theta:
-    num_ants: number of ants
-    MAX_NFC: max number of function calls
-    """
+def dataset( filename ):
+    f = open("./dataset/" + filename , "r")
+    content = f.read()
+    optimalValue = re.search("Optimal value: (\d+)", content, re.MULTILINE)
+    if(optimalValue != None):
+        optimalValue = optimalValue.group(1)
+    else:
+        optimalValue = re.search("Best value: (\d+)", content, re.MULTILINE)
+        if(optimalValue != None):
+            optimalValue = optimalValue.group(1)
+    capacity = re.search("^CAPACITY : (\d+)$", content, re.MULTILINE).group(1)
+    graph = re.findall(r"^(\d+) (\d+) (\d+)$", content, re.MULTILINE)
+    demand = re.findall(r"^(\d+) (\d+)$", content, re.MULTILINE)
+    graph = {int(a):(int(b),int(c)) for a,b,c in graph}
+    demand = {int(a):int(b) for a,b in demand}
+    capacity = int(capacity)
+    optimal = int(optimalValue)
+    return capacity, graph, demand, optimal
 
-    vehicle_capacity, graph, delivery_demand, optimal = dataset('dataset.txt');
-
-    alpha = 2
-    beta = 5
-    sigma = 3
-    rho = 0.8
-    theta = 80
-    num_ants = 22
-    MAX_NFC = 1000
-
-    vrp = ACOVRP( alpha, beta, sigma, rho, theta, num_ants, vehicle_capacity, delivery_demand, MAX_NFC )
-    vrp.set_graph( graph )
-    bestSol = vrp.process()
-    
-    if bestSol is not None:
-        plot_paths( graph, bestSol )

@@ -6,9 +6,8 @@ import copy
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 
 class Customer:
-    def __init__(self, index, location, posX, posY, demand ):
+    def __init__(self, index, posX, posY, demand ):
         self.index    = index
-        self.location = location
         self.demand   = demand
         self.posX     = posX
         self.posY     = posY
@@ -24,18 +23,16 @@ class Customer:
         self.angle = ( 90 - angle ) % 360
 
 class TSP:
-    def __init__(self, num_customers, num_vehicles, depot_index, citydata ):
+    def __init__(self, num_customers, num_vehicles, depot_index ):
         self.num_customers   = num_customers
         self.num_vehicles   = num_vehicles
         self.depot_index    = depot_index
-        self.citydata       = citydata
    
-    def get_distance( self, cityIndex1, cityIndex2 ):
+    def get_distance( self, x1, x2, y1, y2 ):
         """
         Get matrix distance
         """
-        distance = float(self.citydata.loc[cityIndex1][cityIndex2])
-        return distance
+        return np.sqrt( ( x1 - x2 ) ** 2 + ( y1 - y2 ) ** 2 )
 
     def prepare_path(self, cluster ):
         routes = []
@@ -46,17 +43,20 @@ class TSP:
             # Create Routing Model
             routing = pywrapcp.RoutingModel( manager )
 
+
             def get_distance_callback( clustIndex1, clustIndex2 ):
                 """
-                get distance with distance matrix
+                get euclidean distance
                 """
-                cityIndex1 = cluster[clustIndex1].location
-                cityIndex2 = cluster[clustIndex2].location
 
-                distance = self.get_distance( cityIndex1, cityIndex2 )
-                #print( "city distance", cityIndex1, cityIndex2, distance )
+                x1 = int(cluster[clustIndex1].posX)
+                y1 = int(cluster[clustIndex1].posY)
 
-                return distance
+                x2 = int(cluster[clustIndex2].posX)
+                y2 = int(cluster[clustIndex2].posY)
+
+                return self.get_distance( x1, x2, y1, y2 )
+                
 
             # Define cost of each arc
             transit_callback_index = routing.RegisterTransitCallback( get_distance_callback )
@@ -92,20 +92,17 @@ class TSP:
             for i in range(len(routes) - 1):
                 pathCurr = routes[i]
                 pathNext = routes[i+1]
-                cost += self.get_distance( cluster[pathCurr].location, cluster[pathNext].location )
+                cost += self.get_distance( cluster[pathCurr].posX, cluster[pathNext].posX, cluster[pathCurr].posY, cluster[pathNext].posY )
 
         return paths, cost
 
 class Sweep:
     graph = {}
 
-    def __init__( self, vehicle_capacity, delivery_demand, cityref, citydata ):
+    def __init__( self, vehicle_capacity, delivery_demand ):
         #print( "sweep algorithm" )
-        self.cityref      = cityref
         self.vehicle_capacity = vehicle_capacity
         self.delivery_demand   = delivery_demand
-        self.cityref          = cityref
-        self.citydata         = citydata
         self.CustomerList = []
 
         print("-------------------")
@@ -118,16 +115,13 @@ class Sweep:
 
         for i in self.graph.keys():
             demand = 0
-            #print( i, self.graph[i][0], self.cityref[i], self.delivery_demand[i])
             demand = self.delivery_demand[i]
-            cust = Customer( i, self.cityref[i], float(self.graph[i][0]), float(self.graph[i][1]), int(demand) )
+            cust = Customer( i, float(self.graph[i][0]), float(self.graph[i][1]), int(demand) )
             CustomerList.append( cust )
 
         depot = CustomerList[0]  # set the depot
         for custInd in range(1, len(self.CustomerList)):
-            #print( CustomerList[custInd].location )
             CustomerList[custInd].calc_city_angle( depot.posX, depot.posY )
-            #print( CustomerList[custInd].angle )
 
         CustomerList.sort(key=lambda cust:cust.angle, reverse=False)
         self.CustomerList = CustomerList
@@ -166,7 +160,11 @@ class Sweep:
         for path in cluster:
             path.insert(0, depot)
 
-            tsp = TSP( len(path) - 1, 1, 0, self.citydata )
+            # for i in range(len(path)): 
+            #     print (i, end = " ") 
+            #     print (path[i]) 
+
+            tsp = TSP( len(path) - 1, 1, 0 )
             route, cost = tsp.get_routes( path )
             pathCost += cost
             sols.append( route )

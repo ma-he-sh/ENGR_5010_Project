@@ -3,6 +3,7 @@ from functions import dataset
 from functools import reduce
 
 import random as rand
+import copy
 
 class Ant():
     startPoint = 1
@@ -106,6 +107,7 @@ class ACOVRP():
         print("----------------")
 
         self.citydata = citydata
+        self.bestSolTemp = []
 
     def get_city_distance(self, cityIndex1, cityIndex2 ):
         """
@@ -173,6 +175,24 @@ class ACOVRP():
 
         return bestSol
 
+    def get_cost_from_depot( self ):
+        bestSol = []
+
+        paths   = []
+        cost    = 0
+        for pathSol in self.bestSolTemp:
+            # add depot
+            pathSol.insert(0, 1)
+            pathSol.append(1)
+            paths.append( pathSol )
+
+            for i in range( len( pathSol ) - 1 ):
+                cost += int( self.get_city_distance( self.cityref[pathSol[i]], self.cityref[pathSol[i+1]] ) )
+
+        bestSol.append( paths )
+        bestSol.append( cost )
+        return bestSol
+
     def process(self):
         vertices, edges = self.prepare_graph()
         pheromones = self.init_pheromone()
@@ -192,4 +212,5 @@ class ACOVRP():
             #print( "generation:", NFC, " best:", int(bestSol[1]), " path:", str( bestSol[0] ) )
             NFC += 1
 
+        self.bestSolTemp = copy.deepcopy(bestSol[0])
         return bestSol
