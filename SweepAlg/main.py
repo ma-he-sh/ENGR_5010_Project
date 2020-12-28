@@ -19,7 +19,7 @@ if __name__ == '__main__':
     tempdata = pd.read_csv( "../helpers/raw_data/" + datafile )
     citydata = tempdata.set_index("x")
     
-    for vehicle_capacity in [1000, 1500, 2500, 2745, 4000, 11000, 15000]:
+    for vehicle_capacity in [1000, 1500, 2500, 2000, 2745, 4000, 11000, 15000]:
         sweepAlg = Sweep( vehicle_capacity, delivery_demand, cityref, citydata )
 
         start_time = time.time()
