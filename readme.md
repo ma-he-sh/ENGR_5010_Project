@@ -1,6 +1,6 @@
 ### Capacitated Vehical Routing Problem (CVRP)
 
-![alt text](https://github.com/ma-he-sh/ENGR_5010_Project/blob/master/cvrp.jpg)
+![alt text](https://raw.githubusercontent.com/ma-he-sh/ENGR_5010_Project/main/cvrp.jpg)
 
 > The Capacity Vehicle Routing Problem (CVRP) is a combinatorial optimization problem that discovers the
 optimal set of routes for a group of vehicles to complete delivery tasks.
