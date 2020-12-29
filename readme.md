@@ -7,11 +7,11 @@ optimal set of routes for a group of vehicles to complete delivery tasks.
 
 #### Content:
 
-2. Genetic Algorithm `Matlab`
-3. Ant Colony Algorithm `Python`
-4. Sweep Algorithm `Python`
-5. Matrix Generator `Python`
-6. Dataset Generator `Python`
+1. Genetic Algorithm `Matlab`
+2. Ant Colony Algorithm `Python`
+3. Sweep Algorithm `Python`
+4. Matrix Generator `Python`
+5. Dataset Generator `Python`
 
 
 ### Data visualization and datasets
